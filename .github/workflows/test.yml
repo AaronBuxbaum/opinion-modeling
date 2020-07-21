@@ -39,4 +39,4 @@ jobs:
           path: junit.xml
       - name: Verify no unstaged changes
         if: runner.os != 'windows'
-        run: bash __tests__/verify-no-unstaged-changes.sh
+        run: bash tests/verify-no-unstaged-changes.sh
