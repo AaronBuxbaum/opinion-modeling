@@ -1,3 +1,5 @@
+![opinion-modeling](https://github.com/AaronBuxbaum/opinion-modeling/workflows/Run%20tests/badge.svg?branch=master)
+
 To use:
   1. Set up `prisma/.env` with a `DATABASE_URL` that points to a running Postgres instance.
     * To run a local database: `docker run --detach --publish 5433:5432 -e POSTGRES_PASSWORD=postgres --name postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=myapp postgres:latest`
@@ -16,7 +18,3 @@ To make changes:
     2. Run the migration (`yarn migrate`)
     3. Make sure that the migration looks good, and if not, make any necessary adjustments.
     4. Commit the migration (`yarn migrate:up`)
-
-
-TODO:
- - You might need to run `yarn prisma generate`
