@@ -2,12 +2,15 @@
   "name": "opinion-modeling",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "prisma:migrate": "yarn prisma migrate save --experimental && yarn prisma migrate up --experimental",
     "prisma:generate": "yarn prisma generate",
     "nexus:dev": "yarn nexus dev",
     "start": "node .nexus/build/api",
-    "build": "yarn nexus build --deployment vercel",
+    "build": "yarn nexus build --deployment heroku",
     "test": "jest",
     "typecheck": "yarn tsc --noEmit"
   },
