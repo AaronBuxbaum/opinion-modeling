@@ -5,12 +5,14 @@
   "scripts": {
     "prisma:migrate": "yarn prisma migrate save --experimental && yarn prisma migrate up --experimental",
     "prisma:generate": "yarn prisma generate",
+    "nexus:dev": "yarn nexus dev",
+    "start": "node .nexus/build/api",
+    "build": "yarn nexus build --deployment vercel",
     "test": "jest",
     "typecheck": "yarn tsc --noEmit"
   },
   "dependencies": {
     "apollo-server": "^2.16.0",
-    "graphql": "^15.3.0",
     "nexus": "^0.25.0",
     "nexus-plugin-prisma": "^0.16.1"
   },
