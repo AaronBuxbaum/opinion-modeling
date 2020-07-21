@@ -26,6 +26,7 @@
     "@types/node-fetch": "^2.5.7",
     "jest": "^26.1.0",
     "jest-environment-node": "^26.1.0",
+    "jest-junit": "^11.0.1",
     "nanoid": "^3.1.10",
     "pg": "^8.3.0",
     "prettier": "^2.0.5",
@@ -33,6 +34,13 @@
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.52",
     "typescript": "^3.9.7"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
   },
   "prettier": "@prisma-labs/prettier-config"
 }
