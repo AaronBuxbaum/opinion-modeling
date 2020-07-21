@@ -1,0 +1,27 @@
+name: build-test
+
+on:
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  push:
+    branches:
+      - master
+      - releases/*
+    paths-ignore:
+      - "**.md"
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - run: yarn typecheck
+      - run: yarn build
+      - run: yarn test
+      - name: Verify no unstaged changes
+        if: runner.os != 'windows'
+        run: __tests__/verify-no-unstaged-changes.sh
