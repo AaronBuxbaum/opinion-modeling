@@ -6,9 +6,9 @@
     "node": "12.x"
   },
   "scripts": {
-    "prisma:migrate": "yarn prisma migrate save --experimental && yarn prisma migrate up --experimental",
-    "prisma:generate": "yarn prisma generate",
-    "nexus:dev": "yarn nexus dev",
+    "migrate": "yarn prisma migrate save --experimental",
+    "migrate:up": "yarn prisma migrate up --experimental",
+    "dev": "yarn nexus dev",
     "start": "node .nexus/build/api",
     "build": "yarn nexus build --deployment heroku",
     "test": "jest",
