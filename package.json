@@ -13,7 +13,7 @@
     "build": "yarn nexus build",
     "test": "jest",
     "typecheck": "yarn tsc --noEmit",
-    "lint": "yarn eslint . --ext .ts"
+    "lint": "yarn eslint ."
   },
   "dependencies": {
     "apollo-server": "^2.16.0",
