@@ -12,8 +12,7 @@
     "start": "node .nexus/build/api",
     "build": "yarn nexus build --deployment heroku",
     "test": "jest",
-    "typecheck": "yarn tsc --noEmit",
-    "postinstall": "yarn prisma generate"
+    "typecheck": "yarn tsc --noEmit"
   },
   "dependencies": {
     "apollo-server": "^2.16.0",
