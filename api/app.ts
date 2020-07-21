@@ -1,4 +1,4 @@
-import { use } from 'nexus';
-import { prisma } from 'nexus-plugin-prisma';
+import { use } from "nexus";
+import { prisma } from "nexus-plugin-prisma";
 
-use(prisma({ features: { crud: true }}));
+use(prisma({ features: { crud: true } }));
