@@ -1,8 +1,17 @@
 import DynamicSerializer from "dynamic-serializer";
+import * as prettyFormat from "pretty-format";
 import { createTestContext } from "./__helpers";
 
 const ctx = createTestContext();
 const dynamicSerializer = new DynamicSerializer();
+
+expect.addSnapshotSerializer({
+  test: () => true,
+  serialize: (val) => {
+    dynamicSerializer.toStatic(val, ["id", "userId", "updatedAt", "createdAt"]);
+    return prettyFormat(val);
+  },
+});
 
 describe("basic testing", () => {
   test("it runs tests", () => {
@@ -28,7 +37,6 @@ describe("basic testing", () => {
 
   test("it runs queries against Prisma", async () => {
     const result = await ctx.app.db.client.user.findMany();
-    dynamicSerializer.toStatic(result, ["id", "createdAt"]);
     expect(result).toMatchInlineSnapshot(`
       Array [
         Object {
