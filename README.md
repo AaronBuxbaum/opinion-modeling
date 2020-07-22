@@ -6,12 +6,13 @@ To use:
     - Development: `yarn dev`
     - Production: `yarn build && yarn start`
   * Run tests
-    - Start a local Postgres instance on port 5433: `docker run --detach --publish 5433:5432 postgres`
-    - `yarn test`
+    1. Start a local Postgres instance on port 5433: `docker run --detach --publish 5433:5432 postgres`
+    2. `yarn test`
 
-There are two main pieces of this:
-  * Prisma: This is effectively the "ORM". It uses a schema to build a model that we then use to interact with the database.
-  * Nexus: This is the GraphQL server. It generates the GraphQL schema, resolvers, and server.
+There are three pieces of the system. A GraphQL request will be handled linearly and top-down:
+  * Nexus: the GraphQL server. It generates the GraphQL schema, resolvers, and server.
+  * Prisma: effectively the "ORM". It uses a schema to build a model that we then use to interact with the database.
+  * Postgres: the database.
 
 To make changes:
   * If the change does not require a database change, simply update the files under `api/graphql`.
