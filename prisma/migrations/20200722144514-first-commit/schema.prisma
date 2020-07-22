@@ -8,30 +8,30 @@ generator client {
 }
 
 model Location {
-  id        Int    @default(autoincrement()) @id
+  id        String @default(uuid()) @id
   latitude  Float
   longitude Float
   User      User[]
 }
 
 model Post {
-  id        Int       @default(autoincrement()) @id
+  id        String    @default(uuid()) @id
   createdAt DateTime  @default(now())
   url       String
   sentiment Sentiment @relation(fields: [id], references: [id])
   User      User      @relation(fields: [userId], references: [id])
-  userId    Int
+  userId    String
 }
 
 model Sentiment {
-  id       Int      @default(autoincrement()) @id
+  id       String   @default(uuid()) @id
   positive Boolean?
   negative Boolean?
   Post     Post[]
 }
 
 model User {
-  id        Int      @default(autoincrement()) @id
+  id        String   @default(uuid()) @id
   email     String   @unique
   age       Int?
   createdAt DateTime @default(now())

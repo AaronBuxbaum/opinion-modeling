@@ -6,8 +6,9 @@ To use:
     - Development: `yarn dev`
     - Production: `yarn build && yarn start`
   * Run tests
-    1. Start a local Postgres instance on port 5433: `docker run --detach --publish 5433:5432 postgres`
+    1. Start a local Postgres instance on port 5433: `docker run --detach --publish 5433:5432 --name postgres postgres`
     2. `yarn test`
+    3. You likely won't need this, but if you need to clear the database: `docker rm -f -v postgres`
 
 There are three pieces of the system. A GraphQL request will be handled linearly and top-down:
   * Nexus: the GraphQL server. It generates the GraphQL schema, resolvers, and server.

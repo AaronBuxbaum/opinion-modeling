@@ -1,5 +1,3 @@
 # Prisma Migrate lockfile v1
 
-20200721145442-first-migration
-20200721154234-testing-a-migration
-20200722115859-add-location--post--sentiment--user
+20200722144514-first-commit

@@ -2,6 +2,28 @@
   "version": "0.3.14-fixed",
   "steps": [
     {
+      "tag": "CreateSource",
+      "source": "db"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Source",
+        "source": "db"
+      },
+      "argument": "provider",
+      "value": "\"postgresql\""
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Source",
+        "source": "db"
+      },
+      "argument": "url",
+      "value": "\"***\""
+    },
+    {
       "tag": "CreateModel",
       "model": "Location"
     },
@@ -9,7 +31,7 @@
       "tag": "CreateField",
       "model": "Location",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -35,7 +57,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "autoincrement()"
+      "value": "uuid()"
     },
     {
       "tag": "CreateDirective",
@@ -77,7 +99,7 @@
       "tag": "CreateField",
       "model": "Post",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -103,7 +125,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "autoincrement()"
+      "value": "uuid()"
     },
     {
       "tag": "CreateDirective",
@@ -251,7 +273,7 @@
       "tag": "CreateField",
       "model": "Post",
       "field": "userId",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -262,7 +284,7 @@
       "tag": "CreateField",
       "model": "Sentiment",
       "field": "id",
-      "type": "Int",
+      "type": "String",
       "arity": "Required"
     },
     {
@@ -288,7 +310,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "autoincrement()"
+      "value": "uuid()"
     },
     {
       "tag": "CreateDirective",
@@ -321,6 +343,78 @@
       "field": "Post",
       "type": "Post",
       "arity": "List"
+    },
+    {
+      "tag": "CreateModel",
+      "model": "User"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "id",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "uuid()"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "email",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "email"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "age",
+      "type": "Int",
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
@@ -406,17 +500,6 @@
       },
       "argument": "references",
       "value": "[id]"
-    },
-    {
-      "tag": "DeleteField",
-      "model": "User",
-      "field": "name"
-    },
-    {
-      "tag": "UpdateField",
-      "model": "User",
-      "field": "age",
-      "arity": "Optional"
     }
   ]
 }
