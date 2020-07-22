@@ -35,9 +35,14 @@ class PrismaTestEnvironment extends NodeEnvironment {
 
     await this.client.user.create({
       data: {
+        location: {
+          create: {
+            latitude: 0,
+            longitude: 0,
+          },
+        },
         age: 29,
         email: "example@gmail.com",
-        name: "Aaron Buxbaum",
       },
     });
 
