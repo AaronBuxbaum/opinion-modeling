@@ -12,7 +12,7 @@ To use:
 
 There are three pieces of the system. A GraphQL request will be handled linearly and top-down:
   * Nexus: the GraphQL server. It generates the GraphQL schema, resolvers, and server.
-  * Prisma: effectively the "ORM". It uses a schema to build a model that we then use to interact with the database.
+  * Prisma: the database toolkit (effectively, an ORM). It uses a schema to build the database schema and a model that the server uses to interact with that database.
   * Postgres: the database.
 
 To make changes:
