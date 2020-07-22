@@ -18,8 +18,11 @@ jobs:
       postgres:
         image: postgres
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_PORT: 5433
+          POSTGRES_PORT: 5432
+        ports:
+          - 5433:5432
         # Health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
