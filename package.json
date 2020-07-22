@@ -8,6 +8,7 @@
   "scripts": {
     "migrate": "yarn prisma migrate save --experimental",
     "migrate:up": "yarn prisma migrate up --experimental",
+    "studio": "yarn prisma studio --experimental",
     "dev": "yarn nexus dev",
     "start": "node .nexus/build/api",
     "build": "yarn nexus build",
