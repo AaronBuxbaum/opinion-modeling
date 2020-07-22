@@ -6,6 +6,11 @@ const { nanoid } = require("nanoid");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 
+/*
+  in jest
+    "testEnvironment": "./tests/nexus-test-environment.js",
+*/
+
 const prismaBinary = "./node_modules/.bin/prisma";
 
 /**
