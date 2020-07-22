@@ -5,11 +5,7 @@ const NodeEnvironment = require("jest-environment-node");
 const { nanoid } = require("nanoid");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
-
-/*
-  in jest
-    "testEnvironment": "./tests/nexus-test-environment.js",
-*/
+const { PrismaClient } = require("@prisma/client");
 
 const prismaBinary = "./node_modules/.bin/prisma";
 
@@ -25,6 +21,8 @@ class PrismaTestEnvironment extends NodeEnvironment {
 
     // Generate the pg connection string for the test schema
     this.databaseUrl = `postgres://postgres:postgres@localhost:5433/testing?schema=${this.schema}`;
+
+    this.client = new PrismaClient();
   }
 
   async setup() {
@@ -35,11 +33,20 @@ class PrismaTestEnvironment extends NodeEnvironment {
     // Run the migrations to ensure our schema has the required structure
     await exec(`${prismaBinary} migrate up --create-db --experimental`);
 
+    await this.client.user.create({
+      data: {
+        age: 29,
+        email: "example@gmail.com",
+        name: "Aaron Buxbaum",
+      },
+    });
+
     return super.setup();
   }
 
   async teardown() {
     // Drop the schema after the tests have completed
+    await this.client.disconnect();
     const client = new Client({
       connectionString: this.databaseUrl,
     });

@@ -2,10 +2,12 @@
 
 To use:
   * Set up `prisma/.env` with a `DATABASE_URL` that points to a running Postgres instance.
-    - To run a local database: `docker run --detach --publish 5433:5432 -e POSTGRES_PASSWORD=postgres --name postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=myapp postgres:latest`
   * Run the server
     - Development: `yarn dev`
     - Production: `yarn build && yarn start`
+  * Run tests
+    - Start a local Postgres instance on port 5433: `docker run --detach --publish 5433:5432 postgres`
+    - `yarn test`
 
 There are two main pieces of this:
   * Prisma: This is effectively the "ORM". It uses a schema to build a model that we then use to interact with the database.

@@ -10,20 +10,31 @@ describe("basic testing", () => {
   test("it runs queries against Nexus", async () => {
     const result = await ctx.client.send(`
     query {
-      user(where: { id: 1 }) {
+      user(where: { email: "example@gmail.com" }) {
         email
       }
     }
   `);
     expect(result).toMatchInlineSnapshot(`
       Object {
-        "user": null,
+        "user": Object {
+          "email": "example@gmail.com",
+        },
       }
     `);
   });
 
   test("it runs queries against Prisma", async () => {
     const result = await ctx.app.db.client.user.findMany();
-    expect(result).toMatchInlineSnapshot(`Array []`);
+    expect(result).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "age": 29,
+          "email": "example@gmail.com",
+          "id": 1,
+          "name": "Aaron Buxbaum",
+        },
+      ]
+    `);
   });
 });

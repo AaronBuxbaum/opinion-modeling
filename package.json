@@ -42,6 +42,7 @@
   },
   "jest": {
     "preset": "ts-jest",
+    "testEnvironment": "./tests/nexus-test-environment.js",
     "reporters": [
       "default",
       "jest-junit"
