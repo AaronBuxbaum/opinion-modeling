@@ -60,6 +60,7 @@ input PostWhereUniqueInput {
 }
 
 type Query {
+  post(where: PostWhereUniqueInput!): Post
   user(where: UserWhereUniqueInput!): User
 }
 

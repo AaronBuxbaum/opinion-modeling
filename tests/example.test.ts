@@ -30,7 +30,7 @@ describe("basic testing", () => {
       Array [
         Object {
           "age": 29,
-          "createdAt": 2020-07-22T16:54:50.683Z,
+          "createdAt": 2020-07-22T17:01:26.411Z,
           "email": "example@gmail.com",
           "id": 1,
         },
