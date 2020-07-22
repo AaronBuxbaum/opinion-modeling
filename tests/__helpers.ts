@@ -1,6 +1,6 @@
 import {
   createTestContext as originalCreateTestContext,
-  TestContext
+  TestContext,
 } from "nexus/testing";
 
 export function createTestContext(): TestContext {
