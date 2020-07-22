@@ -14,13 +14,91 @@ The `JSON` scalar type represents JSON objects as specified by [ECMA-404](http:/
 """
 scalar Json
 
+input LocationCreateOneWithoutUserInput {
+  connect: LocationWhereUniqueInput
+  create: LocationCreateWithoutUserInput
+}
+
+input LocationCreateWithoutUserInput {
+  latitude: Float!
+  longitude: Float!
+}
+
+input LocationWhereUniqueInput {
+  id: Int
+}
+
+type Mutation {
+  createOnePost(data: PostCreateInput!): Post!
+  createOneUser(data: UserCreateInput!): User!
+}
+
+type Post {
+  url: String!
+}
+
+input PostCreateInput {
+  createdAt: DateTime
+  sentiment: SentimentCreateOneWithoutPostInput!
+  url: String!
+  User: UserCreateOneWithoutPostsInput!
+}
+
+input PostCreateManyWithoutUserInput {
+  connect: [PostWhereUniqueInput!]
+  create: [PostCreateWithoutUserInput!]
+}
+
+input PostCreateWithoutUserInput {
+  createdAt: DateTime
+  sentiment: SentimentCreateOneWithoutPostInput!
+  url: String!
+}
+
+input PostWhereUniqueInput {
+  id: Int
+}
+
 type Query {
   user(where: UserWhereUniqueInput!): User
 }
 
+input SentimentCreateOneWithoutPostInput {
+  connect: SentimentWhereUniqueInput
+  create: SentimentCreateWithoutPostInput
+}
+
+input SentimentCreateWithoutPostInput {
+  negative: Boolean
+  positive: Boolean
+}
+
+input SentimentWhereUniqueInput {
+  id: Int
+}
+
 type User {
   email: String!
-  isLongName: Boolean
+}
+
+input UserCreateInput {
+  age: Int
+  createdAt: DateTime
+  email: String!
+  location: LocationCreateOneWithoutUserInput!
+  posts: PostCreateManyWithoutUserInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  connect: UserWhereUniqueInput
+  create: UserCreateWithoutPostsInput
+}
+
+input UserCreateWithoutPostsInput {
+  age: Int
+  createdAt: DateTime
+  email: String!
+  location: LocationCreateOneWithoutUserInput!
 }
 
 input UserWhereUniqueInput {
