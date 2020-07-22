@@ -1,4 +1,4 @@
-![Tests](https://github.com/AaronBuxbaum/opinion-modeling/workflows/Tests/badge.svg?branch=master)
+![tests](https://github.com/AaronBuxbaum/opinion-modeling/workflows/tests/badge.svg?branch=master)
 
 To use:
   * Set up `prisma/.env` with a `DATABASE_URL` that points to a running Postgres instance.
