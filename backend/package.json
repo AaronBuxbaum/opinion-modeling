@@ -10,7 +10,7 @@
     "migrate:up": "yarn prisma migrate up --experimental",
     "studio": "yarn prisma studio --experimental",
     "dev": "yarn nexus dev",
-    "start": "node .nexus/build/api",
+    "start": "node .nexus/build",
     "build": "yarn nexus build",
     "test": "jest",
     "typecheck": "yarn tsc --noEmit",

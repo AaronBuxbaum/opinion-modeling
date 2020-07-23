@@ -6,8 +6,6 @@ const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 const { PrismaClient } = require("@prisma/client");
 
-const prismaBinary = "./node_modules/.bin/prisma";
-
 class PrismaTestEnvironment extends NodeEnvironment {
   constructor(config) {
     super(config);
@@ -19,7 +17,7 @@ class PrismaTestEnvironment extends NodeEnvironment {
   async setup() {
     process.env.DATABASE_URL = this.databaseUrl;
     this.global.process.env.DATABASE_URL = this.databaseUrl;
-    await exec(`${prismaBinary} migrate up --create-db --experimental`);
+    await exec("npx prisma migrate up --create-db --experimental");
 
     await this.client.user.create({
       data: {
