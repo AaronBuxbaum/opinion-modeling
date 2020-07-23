@@ -1,1 +1,1 @@
-![tests](https://github.com/AaronBuxbaum/opinion-modeling/workflows/tests/badge.svg?branch=master)
+![backend](https://github.com/AaronBuxbaum/opinion-modeling/workflows/backend/badge.svg?branch=master)
