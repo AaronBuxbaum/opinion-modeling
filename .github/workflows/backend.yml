@@ -1,4 +1,4 @@
-name: tests
+name: backend
 
 on:
   pull_request:
@@ -10,6 +10,10 @@ on:
       - releases/*
     paths-ignore:
       - "**.md"
+
+defaults:
+  run:
+    working-directory: backend
 
 jobs:
   build:
@@ -23,7 +27,6 @@ jobs:
           POSTGRES_PORT: 5432
         ports:
           - 5433:5432
-        # Health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
