@@ -1,11 +1,6 @@
 node_modules
-.tmp_build
-dist
-.nexus
 
 !.vscode
 
 *.log
 .env
-
-junit.xml

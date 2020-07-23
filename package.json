@@ -2,9 +2,5 @@
   "private": true,
   "workspaces": [
     "backend"
-  ],
-  "scripts": {
-    "build": "yarn --cwd backend build",
-    "start": "yarn --cwd backend start"
-  }
+  ]
 }
