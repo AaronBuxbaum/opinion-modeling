@@ -1,7 +1,7 @@
 import {
   createTestContext as originalCreateTestContext,
   TestContext,
-} from "nexus/testing";
+} from "nexus/testing"
 
 export function createTestContext(): TestContext {
   const ctx = {} as TestContext;

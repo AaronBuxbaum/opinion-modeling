@@ -1,6 +1,6 @@
 {
-  "name": "opinion-modeling",
-  "version": "1.0.0",
+  "name": "opinion-modeling-backend",
+  "version": "0.0.1",
   "license": "MIT",
   "engines": {
     "node": "12.x"
