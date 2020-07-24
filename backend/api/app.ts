@@ -6,8 +6,7 @@ use(prisma({ features: { crud: true } }));
 
 app.assemble();
 
-export const graphql = serverless(server.handlers.graphql);
-/*, {
+export const graphql = serverless(server.handlers.graphql, {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   request(request: any, event: any) {
     const { body } = request;
@@ -15,5 +14,5 @@ export const graphql = serverless(server.handlers.graphql);
     request.body = JSON.parse(body.toString());
     return request;
   },
-});*/
+});
 export const playground = serverless(server.handlers.playground);
