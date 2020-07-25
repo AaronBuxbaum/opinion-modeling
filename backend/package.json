@@ -12,7 +12,7 @@
     "studio": "yarn prisma studio --experimental",
     "dev": "yarn nexus dev",
     "start": "node .nexus/build",
-    "start:serverless": "func host start",
+    "start:serverless": "yarn sls offline",
     "build": "yarn nexus build",
     "test": "jest",
     "typecheck": "yarn tsc --noEmit",
