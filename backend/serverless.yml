@@ -1,0 +1,32 @@
+service: opinion-modeling
+
+provider:
+  name: azure
+  region: West US 2
+  runtime: nodejs12.x
+  os: linux
+  prefix: "opinion-modeling"
+
+plugins:
+  - serverless-offline
+
+package:
+  include:
+    - .nexus
+
+functions:
+  graphql:
+    handler: .nexus/build/api/app.graphql
+    events:
+      - http:
+          path: graphql
+          method: get
+      - http:
+          path: graphql
+          method: post
+  playground:
+    handler: .nexus/build/api/app.playground
+    events:
+      - http:
+          path: playground
+          method: get

@@ -13,6 +13,8 @@ There are three pieces of the system. A GraphQL request will be handled linearly
   * Prisma: the database toolkit (effectively, an ORM). It uses a schema to build the database schema and a model that the server uses to interact with that database.
   * Postgres: the database.
 
+The server and Prisma will be compiled into a bundle which can be served serverlessly via `serverless.yml`.
+
 To make changes:
   * If the change does not require a database change, simply update the files under `api/graphql`.
   * If the change requires a database change...
