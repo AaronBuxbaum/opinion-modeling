@@ -24,6 +24,10 @@ functions:
       - http:
           path: graphql
           method: post
+      - websocket:
+          route: $connect
+      - websocket:
+          route: $disconnect
   playground:
     handler: .nexus/build/api/app.playground
     events:
