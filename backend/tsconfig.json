@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "es2018",
+    "baseUrl": ".",
     "module": "CommonJS",
     "lib": [
       "esnext"

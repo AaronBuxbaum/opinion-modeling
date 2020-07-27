@@ -1,18 +1,32 @@
+org: aaronbuxbaum
+app: opinion-modeling-app
 service: opinion-modeling
 
 provider:
-  name: azure
-  region: West US 2
+  name: aws
+  region: us-east-1
+  memorySize: 128
   runtime: nodejs12.x
-  os: linux
   prefix: "opinion-modeling"
 
 plugins:
   - serverless-offline
+  - serverless-webpack
+  - serverless-prune-plugin
+
+custom:
+  webpack:
+    packager: yarn
+    sourcemaps: false
+    includeModules:
+      packagePath: '../package.json'
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 1
 
 package:
-  include:
-    - .nexus
+  excludeDevDependencies: false
 
 functions:
   graphql:
